@@ -1,0 +1,31 @@
+#include <stdio.h>
+int main (){
+     int a [5]; 
+    for (int i = 0; i < 5 ; i++){ //ввод массива
+        printf("Введите число: %d", i+1);
+        scanf("%d", &a[i]);
+    }
+    int min = a[0]; //поиск минимального элемента
+    for (int i = 1; i < 5 ; i++){
+        if (a[i]<min)
+        min = a[i];
+    }
+    printf("Минимальный элемент: %d\n", min);
+    
+    int FirstPos = -1, LastPos = -1; //первый и последний положительный элемент
+for (int i = 0; i < 5; i++) {
+    if (a[i] > 0) {
+        if (FirstPos == -1)
+            FirstPos = i;
+        LastPos = i;
+    }
+}
+
+     int sumBetween = 0; //сумма между ними
+    for (int i = FirstPos + 1; i < LastPos; i++) {
+        sumBetween += a[i];
+    }
+    printf("Сумма между первым и последним положительными элементами: %d\n", sumBetween);
+
+    return 0;
+}
